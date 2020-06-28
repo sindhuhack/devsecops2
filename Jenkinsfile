@@ -65,6 +65,10 @@ pipeline {
     sh 'cat nitko'
     }
 }
+        stage ('Slack-notifications') {
+          slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'lilliputpandasheela', color: 'good', message: 'Devsecops', teamDomain: 'lilliputpandasheela', tokenCredentialId: 'slackdemo'
+        }
+        
 
    }
 }
