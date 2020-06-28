@@ -58,5 +58,13 @@ pipeline {
         }
       }
     }
+   stage ('Nitko-scan') {
+   steps {
+    sh 'rm nitko || true'
+    sh 'docker run frapsoft/nikto -host http://3.234.189.32:8090 > nitko'
+    sh 'cat nitko'
+    }
+}
+
    }
 }
