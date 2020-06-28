@@ -43,6 +43,14 @@ pipeline {
              }      
           }   
     }
+    
+      stage ('Nmap-Port-Scan') {
+   steps {
+    sh 'rm nmapresult || true'
+    sh 'docker run instrumentisto/nmap -A -T4 3.234.189.32 > nmapresult > nmapresult'
+    sh 'cat nmapresult'
+    }
+}
       stage ('DAST') {
       steps {
         sshagent(['zap']) {
