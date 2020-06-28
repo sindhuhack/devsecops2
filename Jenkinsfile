@@ -66,8 +66,10 @@ pipeline {
     }
 }
         stage ('Slack-notifications') {
+          steps {
           slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'lilliputpandasheela', color: 'good', message: 'Devsecops', teamDomain: 'lilliputpandasheela', tokenCredentialId: 'slackdemo'
         }
+ }
         
 
    }
